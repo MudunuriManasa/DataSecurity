@@ -23,7 +23,6 @@ This project demonstrates training and evaluation of deep learning models using 
   - SWA applied to achieve improved accuracy.  
   - Label smoothing for better regularization.  
 - **Output:**
-  - **Test Accuracy:** ~98-99%.  
   - **Model Saved:** `swa_best_model.pth`.  
 
 ---
@@ -39,7 +38,6 @@ This project demonstrates training and evaluation of deep learning models using 
   - Malicious client detection using L2 norm outlier analysis.  
   - Local training on client-specific data partitions.  
 - **Output:**
-  - **Test Accuracy:** ~97%.  
   - **Model Saved:** `federated_model.pth`.  
 
 ---
@@ -50,11 +48,15 @@ This project demonstrates training and evaluation of deep learning models using 
 - **Objective:**
   - Detect and mitigate adversarial or malicious patterns in the dataset.  
 - **Features:**
-  - Detect adversarial patterns using FFT and Sobel edge detection.  
-  - Identify poisoned labels using DBSCAN clustering.  
-  - Mitigate noisy inputs with Gaussian blur preprocessing.  
-- **Output:**
-  - **Test Accuracy:** ~96-98% after mitigation.  
+  - Detects adversarial patterns in data using **FFT**, **Sobel edge detection**, and statistical heuristics.
+  - Identifies poisoned labels using **DBSCAN clustering**.
+  - Simulates a scenario where one of the 10 clients becomes **malicious** from a certain training round onward.
+    - The malicious client submits **falsified model updates** (e.g., random or incorrect parameters).
+    - Implements a **mechanism to detect the malicious client** using L2 norm distance analysis of updates.
+    - Minimizes the impact of the malicious client on the overall model by excluding malicious updates during global aggregation.
+    - Ensures the learning process remains **robust and accurate** despite the presence of an attacker.
+- Applies data cleaning and preprocessing techniques, such as **Gaussian blur** and **label replacement**, for mitigation.
+- **Output:**  
   - **Model Saved:** `robust_federated_model.pth`.  
 
 ---
