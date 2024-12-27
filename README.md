@@ -1,10 +1,4 @@
-# DataSecurity
-
-## COURSE PROJECT
-
-### Teammates:
-- **Mamatha Mudunuri**: 002846231  
-- **Manasa Mudunuri**: 002846232  
+# MNIST Classification Project
 
 ---
 
